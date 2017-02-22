@@ -1,6 +1,7 @@
 #!/bin/bash
 
-declare intentos=6
+declare intentos=0
+declare c=0
 
 function dibujo {
     case $intentos in
@@ -48,10 +49,15 @@ function dibujo {
   echo;;
     esac
 }
-echo -e "Jugador 1 Ingresa una palabra:\n"
-read palabra
-let longitud=`expr length "$palabra"`
-echo $longitud
-echo -e "Jugador 2 ingresa letras:\n"
+declare -a palabra_s[20];
+echo;
+read -p "Ingresa la palabra: " palabra                # Se lee la palabra
+let longitud=`expr length "$palabra"`-1     # Sacar la longitud de la palabra:
+# echo $longitud
+for i in $(seq 0 $longitud);
+do
+palabra_s[$i]=${palabra:$i:1}            # Se mete cada caracter en un subindice, en el array palabra_user[x]
+echo palabra_s[$i] = ${palabra_s[$i]}
+done
 
 
