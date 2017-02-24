@@ -118,11 +118,13 @@ fi
 done
 if [ "$cadena_final" == "$palabra" ];
 then
-echo Felicidades, has ganado.
+cat ganador.txt
 
-elif [ "$cadena_final" -ne "$palabra_user2" ];
+elif [ "$cadena_final" -ne "$palabra" ];
 then
-echo Lo siento, has perdido.
+
+cat perdedor.txt
+
 fi
 exit 0
 
