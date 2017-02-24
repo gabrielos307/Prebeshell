@@ -54,8 +54,21 @@ jugadores () {
 
 }
 
+loop_juego (){
+while :
+   do
+    ((i++))
+    value=`expr $i % 2`
+    if  [ "$value" == "0" ]; then
+     echo "$jugador1 Introduce tu elección : "
+     v="X" 
+    else 
+     echo "$jugador2 Introduce tu elección : "
+     v="O"
+   fi
+}
 
-#Juego
+#main
 echo -e "Bienvenido a este juego poderoso"
 echo -e "El juego es para dos jugadores :v"
 echo -e "Los controles para jugar son los siguientes:"
@@ -66,8 +79,11 @@ read "¿Deseas continuar?(s/n)" $s
 if [[ $s == s ] || [$s == S]]; then
 	
 	jugadores
+	tablero
+	loop_juego
 
 	else
 		echo "Sale, bye"
 		exit
 fi
+done
