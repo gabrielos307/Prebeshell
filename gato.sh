@@ -12,21 +12,21 @@ tablero () {
   }
 
 condiciones () {
-	if [[$v == ${array[0]}] == [$v == ${array[1]}] == [$v == ${array[2]}]]; then
+	if [ $v == ${array[0]} ] == [ $v == ${array[1]} ] == [ $v == ${array[2]} ]; then
 		ganaste
-	elif [[$v == ${array[3]}] == [$v == ${array[4]}] == [$v == ${array[5]}]]; then
+	elif [ $v == ${array[3]} ] == [ $v == ${array[4]} ] == [ $v == ${array[5]} ]; then
 		ganaste
-	elif [[$v == ${array[6]}] == [$v == ${array[7]}] == [$v == ${array[8]}]]; then
+	elif [ $v == ${array[6]} ] == [ $v == ${array[7]} ] == [ $v == ${array[8]} ]; then
 		ganaste
-	elif [[$v == ${array[0]}] == [$v == ${array[3]}] == [$v == ${array[6]}]]; then
+	elif [ $v == ${array[0]} ] == [ $v == ${array[3]} ] == [ $v == ${array[6]} ]; then
 		ganaste
-	elif [[$v == ${array[1]}] == [$v == ${array[4]}] == [$v == ${array[7]}]]; then
+	elif [ $v == ${array[1]} ] == [ $v == ${array[4]} ] == [ $v == ${array[7]} ]; then
 		ganaste
-	elif [[$v == ${array[2]}] == [$v == ${array[5]}] == [$v == ${array[8]}]]; then
+	elif [ $v == ${array[2]} ] == [ $v == ${array[5]} ] == [ $v == ${array[8]} ]; then
 		ganaste
-	elif [[$v == ${array[0]}] == [$v == ${array[4]}] == [$v == ${array[8]}]]; then
+	elif [ $v == ${array[0]} ] == [ $v == ${array[4]} ] == [ $v == ${array[8]} ]; then
 		ganaste
-	elif [[$v == ${array[6]}] == [$v == ${array[4]}] == [$v == ${array[2]}]]; then
+	elif [ $v == ${array[6]} ] == [ $v == ${array[4]} ] == [ $v == ${array[2]} ]; then
 		ganaste
 	else
 		tie
@@ -54,36 +54,24 @@ jugadores () {
 
 }
 
-loop_juego (){
-while :
-   do
-    ((i++))
-    value=`expr $i % 2`
-    if  [ "$value" == "0" ]; then
-     echo "$jugador1 Introduce tu elección : "
-     v="X" 
-    else 
-     echo "$jugador2 Introduce tu elección : "
-     v="O"
-   fi
-}
 
 #main
 echo -e "Bienvenido a este juego poderoso"
-echo -e "El juego es para dos jugadores :v"
+echo -e "El juego es para dos personas :v"
 echo -e "Los controles para jugar son los siguientes:"
-echo -e "\nQ W E       _|_|_\nA S D   →   | | \nZ X C     ‾|‾|‾\n\n"
+echo -e "\nQ W E      _|_|_\nA S D  →    | | \nZ X C      ‾|‾|‾\n\n"
 
-read "¿Deseas continuar?(s/n)" $s
+read -n 1 -p "¿Deseas continuar?(s/n)" $s
 
-if [[ $s == s ] || [$s == S]]; then
-	
+if [ "$s" = "s" ] || [ "$s" = "S" ]; then
+	clear
 	jugadores
 	tablero
-	loop_juego
-
-	else
-		echo "Sale, bye"
-		exit
+else
+		clear
+		echo -e "Sale, bye"
+		exit	
 fi
+
 done
+
