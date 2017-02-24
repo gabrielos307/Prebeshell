@@ -43,7 +43,7 @@ tie () {
 	cat tie				#Selecciona archivo con imagen ASCII
 }
 
-jugadores () {}
+jugadores () {
 	clear
 	read "jugador 1 escoge tu nombre" $jugador1
 	echo -n "$jugador1 tu eres <X>"
