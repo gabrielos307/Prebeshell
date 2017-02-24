@@ -1,57 +1,10 @@
 #!/bin/bash
 
-
-
-function dibujo {
-    case $c in
- 1) echo "________________ "
-  echo "               | "
-  echo "               | "
-  echo "               O "
-  echo;;
- 2) echo "________________ "
-  echo "               | "
-  echo "               | "
-  echo "               O "
-  echo "               | "
-  echo "               | "
-  echo;;
- 3) echo "________________ "
-  echo "               | "
-  echo "               | "
-  echo "               O "
-  echo "              \| "
-  echo "               | "
-  echo;;
- 4) echo "________________ "
-  echo "               | "
-  echo "               | "
-  echo "               O "
-  echo "              \|/"
-  echo "               | "
-  echo;;
- 5) echo "________________ "
-  echo "               | "
-  echo "               | "
-  echo "               O "
-  echo "              \|/"
-  echo "               | "
-  echo "              /  "
-  echo;;
- *) echo "________________ "
-  echo "               | "
-  echo "               | "
-  echo "               O "
-  echo "              \|/"
-  echo "               | "
-  echo "              / \\"
-  echo;;
-    esac
-}
 function limpiar()
 {
 clear
 }
+
 declare -a palabra_s[20]
 declare intentos=6
 declare contador=0
@@ -75,15 +28,36 @@ limpiar
 
 while test $contador -le $intentos
 do
+  if [ $contador -eq 1 ]
+then
+cat cabeza.txt
+elif [ $contador -eq 2 ]
+then
+cat tronco.txt
+elif [ $contador -eq 3 ]
+then
+cat brazos.txt
+elif [ $contador -eq 4 ]
+then
+cat brazos2.txt
+elif [ $contador -eq 5 ]
+then
+cat piernas.txt
+elif [ $contador -eq 6 ]
+then
+ cat piernas2.txt 
+fi
 echo;echo;
 for i in $(seq 0 $longitud);
 do
 echo -n "${adivinar[$i]} ";
 done
 echo;
-echo "Ingresa una letra :                                                      Intentos: $contador de $intentos"
+echo "Ingresa una letra :                                                      Errores: $contador de $intentos"
 read letra
 echo $palabra | grep "$letra" > nul 2>&1 || let contador+=1
+
+
 
 # Busqueda secuencial : 
 for i in $(seq 0 $longitud);
@@ -119,12 +93,17 @@ done
 if [ "$cadena_final" == "$palabra" ];
 then
 cat ganador.txt
+echo;echo;echo;echo;
 
-elif [ "$cadena_final" -ne "$palabra" ];
-then
+echo "La palabra  era: $palabra"
+
+else 
 
 cat perdedor.txt
+echo;echo;echo;echo;
 
+echo "La palabra correcta era: $palabra"
 fi
+
 exit 0
 
