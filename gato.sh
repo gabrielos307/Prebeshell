@@ -61,7 +61,7 @@ echo -e "\nQ W E      _|_|_\nA S D  →    | | \nZ X C      ‾|‾|‾\n\n"
 
 read -n 1 -p "¿Deseas continuar?(s/n)" s
 
-if [ "$s" = "s" ] || [ "$s" = "S" ]; then
+if [ "$s" == "s" ] || [ "$s" == "S" ]; then
 	clear
 	jugadores
 	tablero
