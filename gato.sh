@@ -3,11 +3,11 @@
 tablero () {
    clear
    echo -e "\t-------------------------"
-   echo -e "\t|\t${array[0]:-q} | ${array[1]:-w} | ${array[2]:-e}\t|"
+   echo -e "\t|\t${array[0]:--} | ${array[1]:--} | ${array[2]:--}\t|"
    echo -e "\t|\t___________\t|"
-   echo -e "\t|\t${array[3]:-a} | ${array[4]:-s} | ${array[5]:-d}\t|"
+   echo -e "\t|\t${array[3]:--} | ${array[4]:--} | ${array[5]:--}\t|"
    echo -e "\t|\t___________\t|"
-   echo -e "\t|\t${array[6]:-z} | ${array[7]:-x} | ${array[8]:-c}\t|"
+   echo -e "\t|\t${array[6]:--} | ${array[7]:--} | ${array[8]:--}\t|"
    echo -e "\t-------------------------\n"
   }
 
@@ -54,6 +54,7 @@ jugadores () {
 
 
 #main
+clear
 echo -e "\nBienvenido a este juego poderoso\n"
 echo -e "\nEl juego es para dos personas :v\n"
 echo -e "Los controles para jugar son los siguientes:"
@@ -64,10 +65,16 @@ read -n 1 -p "¿Deseas continuar?(s/n)" s
 if [ "$s" == "s" ] || [ "$s" == "S" ]; then
 	clear
 	jugadores
+	sleep 2
 	tablero
+	
+	while :
+	do
+	 read -e -n 1 -p "$jugador1 escoge la posicion deseada: "
+	
 
-	read -p "Escoge la posicion: " 
-
+	read -e -n 1 -p "$jugador2 escoge la posicion deseada: " 
+	done
 else
 		clear
 		echo -e "Sale, bye"
