@@ -4,9 +4,9 @@ tablero () {
    clear
    echo -e "\t-------------------------"
    echo -e "\t|\t${array[0]:--} | ${array[1]:--} | ${array[2]:--}\t|"
-   echo -e "\t|\t___________\t|"
+   echo -e "\t|\t_________\t|"
    echo -e "\t|\t${array[3]:--} | ${array[4]:--} | ${array[5]:--}\t|"
-   echo -e "\t|\t___________\t|"
+   echo -e "\t|\t_________\t|"
    echo -e "\t|\t${array[6]:--} | ${array[7]:--} | ${array[8]:--}\t|"
    echo -e "\t-------------------------\n"
   }
