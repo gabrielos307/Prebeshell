@@ -3,7 +3,7 @@ Proyecto final del curso de Linux.
 
 Integrantes (agregar su nombre completo):
 -Castillo Alcántara Rodrigo
--Coral
+-Dulce Coral Rodriguez Garcia
 -Ernesto Daniel Mejia Valdiviezo
 -Oscar Hernández Luviano
 
