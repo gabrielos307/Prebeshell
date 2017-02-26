@@ -8,27 +8,27 @@ ayuda()
     echo "";
     echo "   A. Comando "infosystem"";
     echo "   B. Fecha";
-    echo "   C. Comando "arboldeku"";
-    echo "   D. Prebe Player";
+    echo "   C. Comando "arbol-ito"";
+    echo "   D. Prebe Player "musik"";
     echo "   E. Créditos";
-    echo "   F. Salir";
+    echo "   F. bye";
     echo "";
  
-    echo -e "\n\033[36m`whoami`\033[32m@\033[36m`hostname`:\033[31m `pwd`\033[32m $ \033[33m\c";
-    read -p "Escoge una opción del menú: " menuAyudar #lee opcion
+    echo -e "\e[0;32mSuperSimon\e[0;36m`whoami`\e[0;31m@\e[32m$\e[33m\c"; 
+    read -p "Dice: " menuAyudar 
     echo -e "\033[0m";
     
     case $menuAyudar in
-        A) echo "Muestra en pantalla el logo de tu distribución con información útil del sistema, Distribuciones Arch Linux y Debian";;
-        B) echo "Muestra fecha y hora actual del sistema en dos formatos diferentes";;
-        C) echo "Listado de directorios y archivos en forma de arbol desde la raiz";;
+        A) echo "Muestra en pantalla información útil del sistema";;
+        B) echo "Muestra calendario con fecha y hora actual del sistema";;
+        C) echo "Listado de directorios y archivos en forma de arbol";;
         D) echo "Reproductor de Prebe-Musica ";;
         E) echo "Informacion de los creadores de la PrebeShell";;
-        F) echo "Sale del programa";;
-        *) sh ./invalida.sh;;
+        F) echo "Comando para salir de la PrebeShell";;
+        *) ./invalida.sh;;
     esac
     echo "";
 }
 
 ayuda
-sh ./regresar.sh
+./regresar.sh

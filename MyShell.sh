@@ -6,35 +6,36 @@ MyShell()
     echo "";
     echo "***** Bienvenido a la PrebeShell: ***** ";
     echo "";
-    echo "          Lista de comandos: "
-    echo "   fecha";
-    echo "   infosystem";
-    echo "   arbol-ito";
-    echo "   musik";
-    echo "   buscar";
-    echo "   ayuda";
-    echo "   gatito";
-    echo "   ahorcado";
-    echo "   creditos";
-    echo "   bye";
+    echo -e "          \e[1;34mLista de comandos: ";
+    echo "";
+    echo "                fecha";
+    echo "              infosystem";
+    echo "              arbol-ito";
+    echo "                musik";
+    echo "                buscar";
+    echo "                ayuda";
+    echo "               gatito";
+    echo "              ahorcado";
+    echo "              creditos";
+    echo "                 bye";
     echo "";
 
-    echo "\033[32mSuperSimon \033[36m`whoami`\033[31m@ \033[32mDice"; 
-    read -p "" menuPrincipal
+    echo -e "\e[0;32mSuperSimon\e[0;36m`whoami`\e[0;31m@\e[0;32m$\e[0;33m\c"; 
+    read -p "Dice: " menuPrincipal
    
     
     case $menuPrincipal in
-        fecha) sh ./fecha.sh;;
-        infosystem) sh ./infosystem.sh;;
-        arbol-ito) sh ./arbolito.sh;;
-        musik) sh ./musica.sh;;
-        buscar) sh ./buscar.sh;;
-        ayuda) sh ./ayuda.sh;;
-        gatito) sh ./gato.sh;;
-        ahorcado)sh ./gamesh;;  
-        creditos) sh ./creditos.sh;;
+        fecha) ./fecha.sh;;
+        infosystem) ./infosystem.sh;;
+        arbol-ito)./arbolito.sh;;
+        musik) ./musica.sh;;
+        buscar)./buscar.sh;;
+        ayuda) ./ayuda.sh;;
+        gatito) ./gato.sh;;
+        ahorcado)./game.sh;;  
+        creditos)./creditos.sh;;
         bye) exit;;
-        *) sh ./invalida.sh;;
+        *)./invalida.sh;;
     esac
     echo "";
 }

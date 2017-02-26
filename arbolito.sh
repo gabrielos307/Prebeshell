@@ -1,7 +1,8 @@
 #!/bin/bash
 
-direActual=$(pwd);
-declare -i dimDire=0;
+RUTA=$(pwd);
+declare -i DIM=0;
+
 
 arbolito()
 {
@@ -9,24 +10,27 @@ arbolito()
 
     for archivo in *
     do
-        printf "\e[31m+";
-        printf "\e[0m";
-        for ((i=0; $i < dimDire; i++))
+        printf "\e[1;35m->";
+        printf  "\e[0m";
+        for ((i=0; $i < DIM; i++))
         do
             printf "\e[32m-";
             printf "\e[0m";
+          
         done
         if [ -d "$archivo" ]; then
-            printf "\e[34m";
+            printf "\e[1;36m";
+          
         else
-            printf "\e[33m";
+            printf "\e[1;33m";
+           
         fi
         
         printf "$archivo\e[0m\n";
 
         if [ -d "$archivo" ]
         then
-            dimDire=$dimDire+1;
+            DIM=$DIM+1;
             arbolito "$archivo";
             cd ..;
         fi
@@ -34,5 +38,5 @@ arbolito()
 }
 
 clear
-arbolito "$1";
-sh ./regresar.sh
+arbolito "$1"
+./regresar.sh

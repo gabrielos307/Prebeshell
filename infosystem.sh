@@ -16,9 +16,9 @@ infosystem()
     echo -e ""; 
     echo -e " \e[36m**** $user\e[32m@\e[36m$hostname ****";
     echo -e "";
-    echo -e "\e[36mSistema Operativo: \e[32m$os";
+    echo -e "\033[36mSistema Operativo: \e[32m$os";
     echo -e "\e[36mKernel: \e[32m$kernel";
-    echo -e "\e[36mRAM: \e[32m$ramUsada Mb \e[31m/ \e[32m$ramTotal Mb";
+    echo -e "\033[36mRAM: \e[32m$ramUsada Mb \e[31m/ \e[32m$ramTotal Mb";
     echo -e "\e[36mSwap: \e[32m$swapUsada Mb \e[31m/ \e[32m$swapTotal Mb";
     echo -e "\e[36mCache: \e[32m$cache Mb";
     echo -e "";
