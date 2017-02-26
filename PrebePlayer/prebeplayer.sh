@@ -2,7 +2,8 @@
 # Script de prueba de PrebePlayer
 
 clear
-while [ $(dpkg -l | grep -c mpg123) -eq 0 ]
+#while [ $(dpkg -l | grep -c mpg123) -eq 0 ]
+while [ -d /usr/bin/mpg123 ]||[ -d /usr/sbin/mpg123 ]
 do
 	echo -e "\e[1;31m\t No se ha encontrado el programa mpg123 \e[0m"	#Sino, no se encontró y...
 	echo -ne "\e[1;32m\t ¿Desea instalarlo? \e[0m"
@@ -101,6 +102,7 @@ do
 			read song
 			
 			echo "$song"
+			find . -print0 | xargs -0 file | grep -i audio | cut -f 1 -d ':'
 			if [[ -n "$song" ]];then							#Si song es una cadena no vacía, entonces
 				if [ $(ls | grep -c "$song") -ne 0 ]; then		#Si el número de coincidencias de esa cadena es mayor que cero
 					mpg123 "$song"								#Se reproduce la canción
