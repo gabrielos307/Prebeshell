@@ -11,7 +11,8 @@ invalida()
    read -p "	Escoge una opción: " menuSalir;
 
    case $menuSalir in
-      1) ./MyShell.sh;;
+      1)cd ..
+       ./MyShell.sh;;
       2) exit;;
       *) ./invalida.sh;;
    esac
