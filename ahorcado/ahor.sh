@@ -9,6 +9,10 @@ clear
 declare -a palabra_s[20]
 declare intentos=6
 declare contador=0
+declare j=1
+while [[ j -eq 1 ]]; do
+	#statements
+
 limpiar
 cat bienvenido.txt;
 
@@ -108,5 +112,12 @@ echo;echo;echo;echo;
 echo "La palabra correcta era: $palabra"
 fi
 
+echo "Quieres jugar de nuevo? s/n"
+read jugar
+if [[ $jugar = "n" ]]; then
+	j=0
+fi
+done
+limpiar
 exit 0
 
