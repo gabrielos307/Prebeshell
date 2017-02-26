@@ -115,7 +115,7 @@ EMPTY_CELL () {
   	sleep 2
   else
     clear
-    echo -e "Sale, bye"
+    cat bye.txt
     cd ..
     cd comandos
     ./regresar.sh
