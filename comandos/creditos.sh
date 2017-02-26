@@ -1,4 +1,7 @@
 #!/bin/bash
+trap "" 2 20
+trap "" SIGTSTP
+
 creditos()
 {
 

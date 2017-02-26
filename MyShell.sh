@@ -2,6 +2,7 @@
 
 trap "" 2 20
 trap "" SIGTSTP
+
 MyShell()
 {
     clear
