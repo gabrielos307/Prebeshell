@@ -1,0 +1,51 @@
+while test $contador -le $intentos
+do
+echo;echo;
+for i in $(seq 0 $longitud);
+do
+echo -n "${palabra_adivinar[$i]} ";
+done
+echo;
+echo "Letra :                                                      Intentos: $contador de $intentos"
+read letra
+echo $palabra_user2 | grep "$letra" > nul 2>&1 || let contador+=1
+# Busqueda secuencial : 
+for i in $(seq 0 $longitud);
+do
+if [ ${palabra_user[$i]} = "$letra" ];then
+palabra_adivinar[$i]=$letra
+fi
+done
+# Mostrar los guiones : 
+echo;echo;
+for i in $(seq 0 $longitud);
+do
+echo -n "${palabra_adivinar[$i]} ";
+done
+echo;echo;
+limpiar
+# Aqui va el IF y el break:
+if [ "$contador" -ge "$intentos" ];
+then
+break
+fi
+i=0
+cadena_final=`while test $i -le $longitud; do echo -n ${palabra_adivinar[$i]}; let i+=1; done`
+# echo Cadena final : $cadena_final
+if [ "$cadena_final" == "$palabra_user2" ];
+then
+break;
+fi
+done
+if [ "$cadena_final" == "$palabra_user2" ];
+then
+echo Felicidades, has ganado.
+echo Ahorcado v1.1
+echo Leo Gutierrez R.
+elif [ "$cadena_final" -ne "$palabra_user2" ];
+then
+echo Lo siento, has perdido.
+echo Ahorcado v1.1
+echo Leo Gutierrez R.
+fi
+exit 0
