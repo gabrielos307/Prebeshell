@@ -16,7 +16,11 @@ while [[ j -eq 1 ]]; do
 limpiar
 cat bienvenido.txt;
 
-read -p "Jugador 1 ingresa la palabra: " -s palabra                # Se lee la palabra
+echo;echo;echo;
+echo "Ingresa UNA palabra SIN espacios"
+echo;echo;echo;
+
+read -p "Jugador 1 ingresa la palabra(NO TE ESPANTES SI NO VES NADA, ES NORMAL, SI ESTAS ESCRIBIENDO): " -s palabra                # Se lee la palabra
 let longitud=`expr length "$palabra"`-1     # Sacar la longitud de la palabra:
 # echo $longitud
 declare -a adivinar[$longitud]
