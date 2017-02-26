@@ -35,6 +35,7 @@ exit_value=0													#Valor inicial de una variable de salida para el ciclo 
 clear
 while [ $exit_value -ne 1 ]										#Ciclo en el que se tendrán las opciones de control del reproductor
 do
+	clear
 	echo -e "\e[1;36m\t|-_-_-_-_-_-_-_-_-_ BIENVENIDO AL PREBEPLAYER -_-_-_-_-_-_-_-_-_|\e[0m"
 	echo -e "\e[1;36m\t|-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-|\e[0m"
 	echo -e "\e[1;36m\t|-_-                                                         -_-|\e[0m"
@@ -54,9 +55,13 @@ do
 	read opt
 	case $opt in
 		1)
-			echo -e "\e[1;32m\t Reproduciendo la lista... \e[0m"
+			echo -e "\e[1;35m\t Reproduciendo la lista... \e[0m"
 			sleep 1
-			mpg123 $pwd
+			echo -e "\e[35m\t|-_-_-------------------Comandos básicos--------------------_-_-|\e[0m"
+			echo -e "\e[35m\t|         Stop/play[s]    Next[f]    Prev[d]    Begin[b]        |\e[0m"
+			echo -e "\e[35m\t|          Vol up[+]    Vol down[-]  Quit[q]    Help[h]         |\e[0m"
+			mpg123 --title -qC *.mp3
+			echo "$?"
 		;;
 		
 		2)
@@ -78,19 +83,22 @@ do
 		;;
 		
 		4)
+			clear
 			echo -e "\e[1;32m\t Listando archivos... \e[0m"
 			sleep 1
-			echo -e "\t `ls`"
+			echo -e "\t `ls -C`"
 			echo -e "\n\t SI DESEA REPRODUCIR ALGUNA CANCIÓN, INGRESE SU NOMBRE, SINO SOLO PRESIONE ENTER"
 			echo -ne "\t >> "
 			read song
 			echo "$song"
 			if [[ -n "$song" ]];then							#Si song es una cadena no vacía
 				if [ $(ls | grep -c "$song") -ne 0 ]; then		#Si el número de coincidencias de esa cadena es mayor que cero
-					mpg123 $song								#Se reproduce la canción
+					mpg123 "$song"								#Se reproduce la canción
 					clear
 				else
 					echo -e "\e[31m\t La canción no se encuentra dentro del directorio \e[0m"
+					sleep 2
+					clear
 				fi
 			else												#Si es vacía, sólo se presionó ENTER
 				clear
