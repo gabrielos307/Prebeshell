@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 function limpiar()
 {
 clear
@@ -8,7 +9,9 @@ clear
 declare -a palabra_s[20]
 declare intentos=6
 declare contador=0
-echo;
+limpiar
+cat bienvenido.txt;
+
 read -p "Jugador 1 ingresa la palabra: " -s palabra                # Se lee la palabra
 let longitud=`expr length "$palabra"`-1     # Sacar la longitud de la palabra:
 # echo $longitud
