@@ -4,20 +4,20 @@ MyShell()
 {
     clear
     echo "";
-    echo "***** Bienvenido a la PrebeShell: ***** ";
+    cat bienvenida.txt
     echo "";
-    echo -e "          \e[1;34mLista de comandos: ";
+    echo -e "                          \e[1;34mLista de comandos: ";
     echo "";
-    echo "                fecha";
-    echo "              infosystem";
-    echo "              arbol-ito";
-    echo "                musik";
-    echo "                buscar";
-    echo "                ayuda";
-    echo "               gatito";
-    echo "              ahorcado";
-    echo "              creditos";
-    echo "                 bye";
+    echo "                             fecha";
+    echo "                           infosystem";
+    echo "                           arbol-ito";
+    echo "                             musik";
+    echo "                             buscar";
+    echo "                             ayuda";
+    echo "                            gatito";
+    echo "                            ahorcado";
+    echo "                            creditos";
+    echo "                              bye";
     echo "";
 
     echo -e "\e[0;32mSuperSimon\e[0;36m`whoami`\e[0;31m@\e[0;32m$\e[0;33m\c"; 
@@ -25,17 +25,27 @@ MyShell()
    
     
     case $menuPrincipal in
-        fecha) ./fecha.sh;;
-        infosystem) ./infosystem.sh;;
-        arbol-ito)./arbolito.sh;;
-        musik) ./musica.sh;;
-        buscar)./buscar.sh;;
-        ayuda) ./ayuda.sh;;
-        gatito) ./gato.sh;;
-        ahorcado)./game.sh;;  
-        creditos)./creditos.sh;;
+        fecha) cd comandos;
+        ./fecha.sh;;
+        infosystem) cd comandos;
+         ./infosystem.sh;;
+        arbol-ito) cd comandos;
+        ./arbolito.sh;;
+        musik) cd PrebePlayer;
+        ./prebeplayer.sh;;
+        buscar) cd comandos;
+        ./buscar.sh;;
+        ayuda) cd comandos;
+        ./ayuda.sh;;
+        gatito) cd gato;
+        ./gato.sh;;
+        ahorcado) cd ahorcado;
+        ./ahor.sh;;  
+        creditos) cd comandos;
+        ./creditos.sh;;
         bye) exit;;
-        *)./invalida.sh;;
+        *) cd comandos;
+        ./invalida.sh;;
     esac
     echo "";
 }
