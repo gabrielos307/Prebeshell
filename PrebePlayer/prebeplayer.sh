@@ -58,15 +58,15 @@ do
 			echo -e "\e[1;35m\t Reproduciendo la lista... \e[0m"
 			sleep 1
 			echo -e "\e[35m\t|-_-_-------------------Comandos básicos--------------------_-_-|\e[0m"
-			echo -e "\e[35m\t|         Stop/play[s]    Next[f]    Prev[d]    Begin[b]        |\e[0m"
-			echo -e "\e[35m\t|          Vol up[+]    Vol down[-]  Quit[q]    Help[h]         |\e[0m"
+			echo -e "\e[35m\t| >>>     Stop/play[s]    Next[f]    Prev[d]    Begin[b]     <<<|\e[0m"
+			echo -e "\e[35m\t| >>>      Vol up[+]    Vol down[-]  Quit[q]    Help[h]      <<<|\e[0m"
 			mpg123 --title -qC *.mp3
 			echo "$?"
 		;;
 		
 		2)
-			echo -e "\e[1;32m\t Indique una ruta o la carpeta a la que desea ingresar de la siguiente lista: \e[0m"
-			ls -d */
+			echo -e "\e[1;32m\tIndique una ruta o la carpeta a la que desea ingresar \n\tde la siguiente lista: \e[0m"
+			ls -F | grep '/$'
 			echo -ne "\t >> "
 			read carpeta
 			cd $carpeta
@@ -84,14 +84,24 @@ do
 		
 		4)
 			clear
-			echo -e "\e[1;32m\t Listando archivos... \e[0m"
-			sleep 1
-			echo -e "\t `ls -C`"
-			echo -e "\n\t SI DESEA REPRODUCIR ALGUNA CANCIÓN, INGRESE SU NOMBRE, SINO SOLO PRESIONE ENTER"
+			echo -e "\e[1;32m\tListando archivos... \n\e[0m"											#Mensaje para listar los archivos
+			sleep 1																						#Se duerme por un segundo
+			
+			if [[ -n $(find . -print0 | xargs -0 file | grep -i audio | cut -f 1 -d ':') ]]; then		#Si sobre la carpeta acual se encuentra algun archivo de audio
+				echo -e "\e[1;33m\t Canciones sobre el directorio actual \e[0m"							
+				find . -print0 | xargs -0 file | grep -i audio | cut -f 1 -d ':' | nl					#Nos muestra la lista numerada de lso archivos
+			else																						#sino...
+				echo -e "\e[31m\tNo hay canciones sobre el directorio actual \e[0m"
+				sleep 2
+				continue																				#Deja de lado el resto de las instrucciones y da un salto de ciclo
+			fi
+
+			echo -e "\n\t[No. canción (Reproducir)/ ENTER (Volver)]"
 			echo -ne "\t >> "
 			read song
+			
 			echo "$song"
-			if [[ -n "$song" ]];then							#Si song es una cadena no vacía
+			if [[ -n "$song" ]];then							#Si song es una cadena no vacía, entonces
 				if [ $(ls | grep -c "$song") -ne 0 ]; then		#Si el número de coincidencias de esa cadena es mayor que cero
 					mpg123 "$song"								#Se reproduce la canción
 					clear
@@ -100,8 +110,8 @@ do
 					sleep 2
 					clear
 				fi
-			else												#Si es vacía, sólo se presionó ENTER
-				clear
+			else												#Si es vacía, sólo se presionó ENTER, se vuelve al menú principal del reproductor
+				continue
 			fi
 		;;
 		
