@@ -9,7 +9,7 @@ declare -a palabra_s[20]
 declare intentos=6
 declare contador=0
 echo;
-read -p "Ingresa la palabra: " palabra                # Se lee la palabra
+read -p "Jugador 1 ingresa la palabra: " -s palabra                # Se lee la palabra
 let longitud=`expr length "$palabra"`-1     # Sacar la longitud de la palabra:
 # echo $longitud
 declare -a adivinar[$longitud]
