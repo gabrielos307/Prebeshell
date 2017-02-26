@@ -40,9 +40,9 @@ ganaste () {
 	cat ganador.txt				#Selecciona archivo con imagen ASCII
   sleep 2
   clear
-  cd comandos
-  ./regresar.sh
-  #exit
+  #cd comandos
+  #./regresar.sh
+  exit
 }
 
 tie () {                                        #Se saco del codigo de un juego
@@ -112,8 +112,8 @@ EMPTY_CELL () {
   else
     clear
     echo -e "Sale, bye"
-    cd comandos
-    ./regresar.sh
+    #cd comandos
+    #./regresar.sh
     exit
   fi
     tablero
