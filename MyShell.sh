@@ -20,10 +20,10 @@ MyShell()
     echo "                              bye";
     echo "";
 
-    echo -e "\e[0;32mSuperSimon\e[0;36m`whoami`\e[0;31m@\e[0;32m$\e[0;33m\c"; 
+    echo -e "\e[0;32mSuperSimon\e[0;31m@\e[0;36m`whoami`\e[0;32m$\e[0;33m\c"; 
     read -p "Dice: " menuPrincipal
-   
-    
+
+
     case $menuPrincipal in
         fecha) cd comandos;
         ./fecha.sh;;
@@ -40,7 +40,7 @@ MyShell()
         gatito) cd gato;
         ./gato.sh;;
         ahorcado) cd ahorcado;
-        ./ahor.sh;;  
+        ./ahor.sh;;
         creditos) cd comandos;
         ./creditos.sh;;
         bye) exit;;
