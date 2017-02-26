@@ -36,30 +36,7 @@ calendario()
     echo "$h ":" $min ":" $seg";
 }
 
-fechahora()
-{
-    echo "Fecha: $dia "/" $mes "/" $anio";
-    echo "Hora:  $h":" $min":" $seg";
-}
-
-fecha()
-{
-    echo "";
-    echo "***** Calendario: *****";
-    echo "";
-    echo "   A. Calendario";
-    echo "   B. Fecha y hora actual";
-    echo "";
-    read -p "Selecciona una opcion de calendario: "  menuFecha;
-
-    case $menuFecha in
-        A) calendario;;
-        B) fechahora;;
-        *) sh ./invalida.sh;;
-    esac
-    
-}
    
 clear
-fecha
+calendario
 sh ./regresar.sh

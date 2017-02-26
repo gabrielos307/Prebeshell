@@ -24,7 +24,16 @@ infosystem()
     echo -e "";
     echo -e "\e[36mProcesador: ";
     echo -e "\e[32m$procesador";
+
+ if [ -f /etc/debian_version ]; then
+        os="Debian $(cat /etc/debian_version)"
+        cat debian.txt;
+    else
+        os="Arch Linux"
+        archLinux;
+fi
+
 }
 clear
 infosystem
-sh ./regresar.sh
+./regresar.sh

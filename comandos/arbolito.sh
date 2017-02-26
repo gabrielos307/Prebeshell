@@ -10,7 +10,7 @@ arbolito()
 
     for archivo in *
     do
-        printf "\e[1;35m->";
+        printf "\e[1;35m>";
         printf  "\e[0m";
         for ((i=0; $i < DIM; i++))
         do

@@ -10,11 +10,15 @@ regresar()
    read -p "	Escoge una opción: " menuSalir;
 
    case $menuSalir in
-      1) sh MyShell.sh;;
-      2)echo "******* Hasta luego gracias por usar nuestra PrebeShell *******"; 
+      1) cd ..;
+      ./MyShell.sh;;
+      2)clear
+        echo "******* Hasta luego gracias por usar nuestra PrebeShell *******";
+        cat bye.txt;
         exit;;
-      *) sh invalida.sh;;
+      *) ./invalida.sh;;
    esac
    echo "";
 }
 regresar
+clear

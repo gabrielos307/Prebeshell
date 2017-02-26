@@ -5,14 +5,14 @@ function limpiar()
 {
 clear
 }
+declare j=1
+
+while [[ j -eq 1 ]]; do
+	#statements
 
 declare -a palabra_s[20]
 declare intentos=6
 declare contador=0
-declare j=1
-while [[ j -eq 1 ]]; do
-	#statements
-
 limpiar
 cat bienvenido.txt;
 
@@ -87,7 +87,7 @@ done
 echo;echo;
 limpiar
 
-# Aqui va el IF y el break:
+# Aqui va el IF 
 if [ "$contador" -ge "$intentos" ];
 then
 break
