@@ -1,15 +1,26 @@
 #!/bin/bash
 
+
 function limpiar()
 {
 clear
 }
+declare j=1
+
+while [[ j -eq 1 ]]; do
+	#statements
 
 declare -a palabra_s[20]
 declare intentos=6
 declare contador=0
-echo;
-read -p "Ingresa la palabra: " palabra                # Se lee la palabra
+limpiar
+cat bienvenido.txt;
+
+echo;echo;echo;
+echo "Ingresa UNA palabra SIN espacios"
+echo;echo;echo;
+
+read -p "Jugador 1 ingresa la palabra(NO TE ESPANTES SI NO VES NADA, ES NORMAL, SI ESTAS ESCRIBIENDO): " -s palabra                # Se lee la palabra
 let longitud=`expr length "$palabra"`-1     # Sacar la longitud de la palabra:
 # echo $longitud
 declare -a adivinar[$longitud]
@@ -76,7 +87,7 @@ done
 echo;echo;
 limpiar
 
-# Aqui va el IF y el break:
+# Aqui va el IF 
 if [ "$contador" -ge "$intentos" ];
 then
 break
@@ -105,5 +116,12 @@ echo;echo;echo;echo;
 echo "La palabra correcta era: $palabra"
 fi
 
+echo "Quieres jugar de nuevo? s/n"
+read jugar
+if [[ $jugar = "n" ]]; then
+	j=0
+fi
+done
+limpiar
 exit 0
 
