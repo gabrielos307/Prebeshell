@@ -1,3 +1,7 @@
+#!/bin/bash
+trap "" 2 20
+trap "" SIGTSTP
+
 read -p "Usuario: " user;
 echo -n -e "Contrase\xc3\xb1a: "
 read -s pass;

@@ -1,5 +1,7 @@
 #!/bin/bash
 
+trap "" 2 20
+trap "" SIGTSTP
 MyShell()
 {
     clear
@@ -11,7 +13,7 @@ MyShell()
     echo "                             fecha";
     echo "                           infosystem";
     echo "                           arbol-ito";
-    echo "                             musik";
+    echo "                          prebe-player";
     echo "                             buscar";
     echo "                             ayuda";
     echo "                            gatito";
@@ -31,7 +33,7 @@ MyShell()
          ./infosystem.sh;;
         arbol-ito) cd comandos;
         ./arbolito.sh;;
-        musik) cd PrebePlayer;
+        prebe-player) cd PrebePlayer;
         ./prebeplayer.sh;;
         buscar) cd comandos;
         ./buscar.sh;;
