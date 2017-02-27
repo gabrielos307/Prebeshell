@@ -33,6 +33,7 @@ sleep 2
 
 
 exit_value=0													#Valor inicial de una variable de salida para el ciclo siguiente
+ruta_actual=$PWD 												#Guardamos la ruta actual
 
 while [ $exit_value -ne 1 ]										#Ciclo en el que se tendrán las opciones de control del reproductor
 do
@@ -139,7 +140,7 @@ do
 		6)
 			echo -e "\e[1;32m\t Saliendo... \e[0m"
 			sleep 1
-			exit 0
+			exit_value=1
 		;;
 		
 		*)
@@ -148,8 +149,9 @@ do
 		;;
 	esac
 
-
-	exit_value=0
 done
 
-exit
+cd $ruta_actual
+cd ..
+cd comandos
+./regresar.sh
