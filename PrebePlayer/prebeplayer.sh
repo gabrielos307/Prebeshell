@@ -43,12 +43,11 @@ do
 	echo -e "\e[1;36m\t|-_- 1) Reproducir lista de la carpeta actual                -_-|\e[0m"
 	echo -e "\e[1;36m\t|-_- 2) Cambiar de carpeta                                   -_-|\e[0m"
 	echo -e "\e[1;36m\t|-_- 3) Subir una carpeta                                    -_-|\e[0m"
-	echo -e "\e[1;36m\t|-_- 4) Listar archivos y subcarpetas de la carpeta actual   -_-|\e[0m"
+	echo -e "\e[1;36m\t|-_- 4) Listar canciones de la carpeta actual                -_-|\e[0m"
 	echo -e "\e[1;36m\t|-_- 5) Mostrar las opciones del reproductor                 -_-|\e[0m"
 	echo -e "\e[1;36m\t|-_- 6) Salir del reproductor                                -_-|\e[0m"
 	echo -e "\e[1;36m\t|-_-                                                         -_-|\e[0m"
 	echo -e "\e[1;36m\t|-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-|\e[0m"
-	echo -e "\e[1;36m\t|-_-_------------------Reproduciendo ahora------------------_-_-|\e[0m"
 	echo -e "\e[1;36m\t|-_-_--------------------Carpeta actual---------------------_-_-|\e[0m"
 	echo -e "\e[31m\t >> `pwd` << \e[0m"
 	
@@ -125,10 +124,15 @@ do
 			echo -e "\e[35m\t| >>>     Stop/play[s]    Next[f]    Prev[d]    Begin[b]     <<<|\e[0m"
 			echo -e "\e[35m\t| >>>      Vol up[+]    Vol down[-]  Quit[q]    Help[h]      <<<|\e[0m"
 			mpg123 --title -qC "$(sed -n "${song}p" song_list.txt)"
+			rm song_list.txt
 		;;
 		
 		5)
 			echo -e "\e[1;32m\t Cargando opciones del reproductor... \e[0m"
+			sleep 1
+			mpg123 --help
+			echo -e "\e[1;33m\tPresione ENTER para volver \e[0m"
+			read enter
 			sleep 1
 		;;
 		
