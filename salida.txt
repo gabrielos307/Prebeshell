@@ -1,0 +1,9 @@
+ahorcado
+bienvenida.txt
+comandos
+gato
+MyShell.sh
+PrebePlayer
+prebeshell.sh
+README.txt
+salida.txt
