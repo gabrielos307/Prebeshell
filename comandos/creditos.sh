@@ -9,9 +9,9 @@ creditos()
     echo -e "   \e[1m Proyecto para el curso de Linux creado por: \e[21m ";
     echo "";
     echo -e "      \e[1;33m Dulce Coral Rodriguez Garcia prebecario #9 ";
-    echo -e "      \e[1;31m Ernesto Daniel Mejia Valdiviezo prebecario # ";
+    echo -e "      \e[1;31m Ernesto Daniel Mejia Valdiviezo prebecario #2 ";
     echo -e "      \e[1;32m Oscar Hernandez Luviano prebecario #16 ";
-    echo -e "      \e[1;34m Rodrigo Castillo Alcantara prebecario # ";       
+    echo -e "      \e[1;34m Rodrigo Castillo Alcantara prebecario #11 ";       
     echo "       ";
     echo "";
     echo "     ";

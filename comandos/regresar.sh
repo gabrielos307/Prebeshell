@@ -1,5 +1,6 @@
-#!/bin/bash
-trap "" 2 20
+#!/bin/bash 
+
+trap "" 2 20 
 trap "" SIGTSTP
 
 regresar()

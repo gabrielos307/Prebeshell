@@ -1,7 +1,8 @@
 #!/bin/bash
 
 trap "" 2 20
-trap "" SIGTSTP
+trap "" SIGTSTP  # Ctrl+z y Ctrl+c
+printf "\033c"	
 
 #try=0;
 #while [ $try != 2 ]; do

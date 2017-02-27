@@ -1,7 +1,7 @@
 #!/bin/bash
 
-#trap "" 2 20
-#trap "" SIGTSTP
+trap "" 2 20
+trap "" SIGTSTP  # Ctrl+z y Ctrl+c
 
 cal > .calendario
 
