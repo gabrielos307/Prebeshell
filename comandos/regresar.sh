@@ -9,8 +9,7 @@ regresar()
    echo "1. Regresar al menú principal";
    echo "2. Salir de la PrebeShell";
    echo "";
-   echo "	Escoge una opción: " 
-   out= menuSalir;
+   read -p "	Escoge una opción: "  menuSalir;
 
    case $menuSalir in
       1) cd ..;

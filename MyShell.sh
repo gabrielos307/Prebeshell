@@ -20,7 +20,7 @@ MyShell()
     echo "                            gatito";
     echo "                            ahorcado";
     echo "                            creditos";
-    echo "                              bye";
+    echo "                              salir";
     echo "";
 
     echo -e "\e[0;32mSuperSimon\e[0;31m@\e[0;36m`whoami`\e[0;32m$\e[0;33m\c"; 
@@ -46,7 +46,7 @@ MyShell()
         ./ahor.sh;;
         creditos) cd comandos;
         ./creditos.sh;;
-        bye) exit;;
+        salir) exit;;
         *) cd comandos;
         ./invalida.sh;;
     esac
